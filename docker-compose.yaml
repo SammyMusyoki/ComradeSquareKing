@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+    comradesquare:
+        build: ./comradesquare
+        container_name: comradesquare_c1
+        ports:
+        - "3000:3000"
+        volumes:
+          -./comradesquare:/comradesquare
+          -./comradesquare/node_modules
+        stdin_open: true
+        tty: true
+
+    comrades_backend:
+        build: ./comrades_backend
+        container_name: comrades_backend_c1
+        ports:
+        - "8000:8000"
+        volumes:
+          -./comrades_backend:/comrades_backend
+          -./comrades_backend/venv
